@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux";
 import { addTodo } from "../features/todos-slice";
+import './TodoForm.css';
 
 
 function TodoForm() {
@@ -14,10 +15,10 @@ function TodoForm() {
     }
 
   return (
-    <div>
-        <form action="" onSubmit={add}>
-            <input type="text" value={inputValue} onChange={(e)=>setInputValue(e.target.value)}  />
-            <button>Add todo</button>
+    <div className="form_box">
+        <form action="" onSubmit={add} className="form_content">
+            <input type="text" className='input_field' value={inputValue} onChange={(e)=>setInputValue(e.target.value)}  />
+            <button className='add_btn'>Add todo</button>
         </form>
     </div>
   )

@@ -1,0 +1,27 @@
+
+.form_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+}
+
+.input_field{
+    width: 230px;
+    height: 37px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.add_btn{
+    width: 70px;
+    height: 37px;
+    background-color: #4546A1;
+    color: #fff;
+    border: none;
+}
+.add_btn:hover{
+    cursor: pointer;
+}

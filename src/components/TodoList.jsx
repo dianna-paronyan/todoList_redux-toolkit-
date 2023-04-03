@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { deleteTodo } from "../features/todos-slice";
+import './TodoList.css'
 
 
 function TodoList() {
@@ -9,12 +10,12 @@ function TodoList() {
         dispatch(deleteTodo({id}))
     }
   return (
-    <div>
+    <div className="list_box">
         {todos.map((el)=>{
             return(
-                <div key={el.id} style={{display:'flex',alignItems:'center'}}>
+                <div key={el.id} className="item_box">
                     <p>{el.text}</p>
-                    <button onClick={()=>delTodo(el.id)}>x</button>
+                    <button className="delete_btn" onClick={()=>delTodo(el.id)}>x</button>
                 </div>
             )
         })}

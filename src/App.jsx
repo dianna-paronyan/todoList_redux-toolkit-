@@ -7,8 +7,13 @@ function App() {
 
   return (
     <div className="App">
-      <TodoForm />
-      <TodoList /> 
+      <div className='todoBox'>
+        <span className='heading'>
+          <h3 className='text'>To-Do List</h3>
+        </span>
+        <TodoForm />
+        <TodoList /> 
+      </div>
     </div>
   )
 }
