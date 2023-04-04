@@ -8,21 +8,22 @@ function TodoList() {
     const [input,setInput] = useState('');
     const todos = useSelector((state)=>state.todos);
     const dispatch = useDispatch();
+    
     function delTodo(id){
         dispatch(deleteTodo({id}))
     }
     const handleTodoItemClick =(id,text) =>(e)=>{
         dispatch(editTodo({id, text, isEditMode: true}))
-        console.log(todos);
     }
-    const todoItemFormSubmit = (id) =>(e)=>{
+    const todoItemFormSubmit = (id,text) =>(e)=>{
         e.preventDefault();
-        dispatch(editTodo({ id, text: input, isEditMode: false }))
+        if(input.trim()){
+            dispatch(editTodo({ id, text:  text, isEditMode: false }))
+        }
     }
     const  handleTodoItemChange = (id)=> (e)=>{
         setInput(e.target.value);
         dispatch(editTodo({id, text: e.target.value, isEditMode:true}))
-        console.log(todos);
     }
 
 
@@ -35,9 +36,10 @@ function TodoList() {
                         <>
                             <p  onClick={handleTodoItemClick(el.id,el.text)}>{el.text}</p>
                             <button className="delete_btn" onClick={()=>delTodo(el.id)}>x</button>
+
                         </>
                     ):(
-                        <form action="" className="form_content" onSubmit={todoItemFormSubmit(el.id)} >
+                        <form action="" className="form_content" onSubmit={todoItemFormSubmit(el.id,el.text)} >
                             <input type="text" className='input_field' value={el.text}  onChange={handleTodoItemChange(el.id)}  />
                             <button className='add_btn'>done</button>
                         </form>
