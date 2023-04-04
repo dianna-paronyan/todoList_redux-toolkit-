@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: #FFFBF7;
+}
 .App{
     margin-top: 100px;
 }
@@ -10,7 +13,8 @@
     width: 35%;
     margin: auto;
     padding: 50px 35px 50px 35px;
-    background-color: #dedcdc;
+    background-image: url('https://img.freepik.com/premium-photo/flat-lay-top-view-office-table-desk-feminine-desk-workspace-with-laptop-diary-succulent-glasses-watch-white-background_408798-6546.jpg');
+    background-size: cover;
     border: 3px solid #4546A1;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
