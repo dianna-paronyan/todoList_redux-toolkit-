@@ -4,13 +4,12 @@
     box-sizing: border-box;
 }
 .App{
-
     margin-top: 100px;
 }
 .todoBox{
     width: 35%;
     margin: auto;
-    padding: 50px 35px 10px 35px;
+    padding: 50px 35px 50px 35px;
     background-color: #dedcdc;
     border: 3px solid #4546A1;
     border-radius: 10px;

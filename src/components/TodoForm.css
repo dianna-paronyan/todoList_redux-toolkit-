@@ -1,9 +1,15 @@
 
+.form_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .form_content{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px auto;
+    margin-top: 30px;
 }
 
 .input_field{
@@ -24,4 +30,9 @@
 }
 .add_btn:hover{
     cursor: pointer;
+}
+.err_text{
+    height: 20px;
+    font-size: 14px;
+    color: red;
 }
