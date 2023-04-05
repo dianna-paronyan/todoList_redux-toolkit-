@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { deleteTodo, editTodo } from "../features/todos-slice";
+import { changeCompleted, deleteTodo, editTodo } from "../features/todos-slice";
 import { useState } from "react";
 import './TodoList.css'
 
@@ -9,6 +9,7 @@ function TodoList() {
     const todos = useSelector((state)=>state.todos);
     const dispatch = useDispatch();
     
+    const lengthOfComleted = todos.filter((todo)=> todo.isCompleted).length;
     function delTodo(id){
         dispatch(deleteTodo({id}))
     }
@@ -17,13 +18,16 @@ function TodoList() {
     }
     const todoItemFormSubmit = (id,text) =>(e)=>{
         e.preventDefault();
-        if(input.trim()){
-            dispatch(editTodo({ id, text:  text, isEditMode: false }))
-        }
+        dispatch(editTodo({ id, text:  text, isEditMode: false }))
     }
     const  handleTodoItemChange = (id)=> (e)=>{
         setInput(e.target.value);
         dispatch(editTodo({id, text: e.target.value, isEditMode:true}))
+    }
+
+    const changeIsCompleted = (id)=>(e)=>{
+        dispatch(changeCompleted({id,isCompleted:e.target.checked}))
+        console.log(todos);
     }
 
 
@@ -34,7 +38,10 @@ function TodoList() {
                 <div key={el.id} className="item_box">
                     {!el.isEditMode ? (
                         <>
-                            <p  onClick={handleTodoItemClick(el.id,el.text)}>{el.text}</p>
+                            <div style={{display:'flex',justifyContent:'center', alignItems:'center',gap:'5px'}}>
+                                <input type="checkbox" checked={el.isCompleted} onChange={changeIsCompleted(el.id)}/>
+                                <p className="txt" style={{textDecoration:el.isCompleted ? 'line-through' : 'none'}} onClick={handleTodoItemClick(el.id,el.text)}>{el.text}</p>
+                            </div>
                             <button className="delete_btn" onClick={()=>delTodo(el.id)}>x</button>
 
                         </>
@@ -47,6 +54,8 @@ function TodoList() {
                 </div>
             )
         })}
+        {todos.length ? <p className="completed_todo">{lengthOfComleted}/{todos.length} completed</p>:null}
+        
     </div>
   )
 }

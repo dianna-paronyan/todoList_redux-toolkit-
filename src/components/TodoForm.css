@@ -4,16 +4,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: auto;
 }
 .form_content{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
 }
 
 .input_field{
-    width: 230px;
+    width: 95%;
     height: 37px;
     padding: 10px;
     outline: none;
@@ -37,3 +37,5 @@
     font-size: 14px;
     color: red;
 }
+
+

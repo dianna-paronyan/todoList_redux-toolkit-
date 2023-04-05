@@ -1,10 +1,12 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
 .list_box{
-    width: 350px;
+    width: 80%;
     margin: auto;
 }
 
 .item_box{
+    width: 90%;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,6 +14,11 @@
     border-radius: 8px;
     padding: 12px;
     margin-top: 20px;
+}
+
+.txt{
+    font-family: 'Cookie', cursive;
+    font-size: 22px;
 }
 
 .delete_btn{
@@ -22,4 +29,29 @@
 }
 .delete_btn:hover{
     cursor: pointer;
+}
+
+
+  @media screen and (max-width: 500px) and (min-width: 300px) {
+    .list_box {
+      width: 100%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .item_box{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
+.completed_todo{
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Cookie', cursive;
+    font-size: 23px;
 }

@@ -11,6 +11,7 @@ const todosSlice = createSlice({
         id: nanoid(),
         text: action.payload.text,
         isEditMode: false,
+        isCompleted: false
       };
       state.push(newTodo);
     },
@@ -18,18 +19,21 @@ const todosSlice = createSlice({
       return state.filter((todo) => todo.id !== action.payload.id);
     },
     editTodo: (state, action) => {
-      return state.map((item) =>
-        item.id === action.payload.id
+      return state.map((todo) =>
+        todo.id === action.payload.id
           ? {
-              ...item,
+              ...todo,
               text: action.payload.text,
               isEditMode: action.payload.isEditMode,
             }
-          : item
+          : todo
       );
     },
+    changeCompleted:(state, {payload})=>{
+     return state.map((todo)=> todo.id === payload.id ? {...todo, isCompleted:payload.isCompleted} : todo)
+    }
   },
 });
 
-export const { addTodo, deleteTodo, editTodo } = todosSlice.actions;
+export const { addTodo, deleteTodo, editTodo, changeCompleted } = todosSlice.actions;
 export default todosSlice.reducer;
